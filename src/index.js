@@ -1,14 +1,3 @@
-import './styles/main_styles.css';
-
-import './styles/bootstrap4/bootstrap.min.css';
-import './plugins/fontawesome-free-5.0.1/css/fontawesome-all.css';
-import './plugins/OwlCarousel2-2.2.1/owl.carousel.css';
-import './plugins/OwlCarousel2-2.2.1/owl.theme.default.css';
-import './styles/responsive.css';
-import './plugins/slick-1.8.0/slick.css';
-
-
-
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {createBrowserHistory} from "history";
