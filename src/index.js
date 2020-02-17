@@ -1,30 +1,37 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {createBrowserHistory} from "history";
-import thunk from "redux-thunk";
-import {routerMiddleware, ConnectedRouter} from "connected-react-router";
-import {applyMiddleware, createStore} from "redux";
-import {composeWithDevTools} from "redux-devtools-extension";
-import createRootReducer from 'reducers';
-import {Provider} from "react-redux";
+import { ToastProvider} from 'react-toast-notifications'
+import {BrowserRouter as Router} from 'react-router-dom'
 
-import routes from 'routes';
-
-
-const history = createBrowserHistory();
-const middlewares = [thunk, routerMiddleware(history)];
-const store = createStore(
-    createRootReducer(history),
-    composeWithDevTools(applyMiddleware(...middlewares))
-);
+import {CurrentUserProvider} from 'contexts/currentUser'
+import {CurrentBasketProvider} from 'contexts/currentBasket'
+import {CurrentSearchProvider} from 'contexts/currentSearch'
+import CurrentUserChecker from 'components/currentUserChecker'
+import CurrentBasketChecker from 'components/currentBasketChecker'
+import Routes from 'routes';
 
 
-ReactDOM.render(
-    <Provider store={store}>
-        <ConnectedRouter history={history}>
-            {routes}
-        </ConnectedRouter>
-    </Provider>,
-    document.getElementById('root')
-);
+
+
+const App = () => {
+    return (
+        <ToastProvider>
+            <CurrentUserProvider>
+                <CurrentSearchProvider>
+                    <CurrentBasketProvider>
+                        <CurrentBasketChecker>
+                            <CurrentUserChecker>
+                                <Router>
+                                    <Routes/>
+                                </Router>
+                            </CurrentUserChecker>
+                        </CurrentBasketChecker>
+                    </CurrentBasketProvider>
+                </CurrentSearchProvider>
+            </CurrentUserProvider>
+        </ToastProvider>
+    )
+}
+
+ReactDOM.render(<App />, document.getElementById('root'));
 

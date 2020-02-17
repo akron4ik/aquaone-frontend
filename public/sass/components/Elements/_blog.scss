@@ -946,11 +946,11 @@
         margin-bottom: 20px;
         position: relative;
         text-transform: capitalize;
-        &:before {
+        /*&:before {
             @include line-center(50px,
             #eb5050);
             border-bottom: 2px solid #eb5050;
-        }
+        }*/
     }
     .breadcrumb {
         margin: 0;
