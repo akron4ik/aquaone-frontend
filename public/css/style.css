@@ -9534,7 +9534,6 @@ span.star:before {
         .heading-content .page-title.v2 {
           font-size: 30px; } }
     .heading-content .page-title:before {
-      border-bottom: 2px solid #eb5050;
       top: 50%;
       content: "";
       left: 50%;
