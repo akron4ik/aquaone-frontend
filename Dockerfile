@@ -15,6 +15,9 @@ EXPOSE 3000
 # Шаг 5. Копируем данные из образа в рабочую папку.
 COPY ./ ./
 
+ARG AQUAONE_API
+ENV AQUAONE_API=${AQUAONE_API}
+
 # Щаг 6. Запускаем менеджер пакетов NodeJS.
 RUN yarn install
 
